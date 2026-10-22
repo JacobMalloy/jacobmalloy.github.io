@@ -1,9 +1,132 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jacob Malloy</title>
+    <meta name="description" content="Jacob Malloy, Ph.D. student in Computer Science at the University of Tennessee, working on garbage collection and memory management in the HotSpot JVM.">
+    <style>
+        :root {
+            --fg: #222;
+            --muted: #666;
+            --bg: #fdfdfd;
+            --link: #1a5fb4;
+        }
+        :root[data-theme="dark"] {
+            --fg: #ddd;
+            --muted: #999;
+            --bg: #161616;
+            --link: #78aeed;
+        }
+        body {
+            max-width: 42rem;
+            margin: 3rem auto;
+            padding: 0 1rem;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--fg);
+            background: var(--bg);
+        }
+        h1 { margin-bottom: 0.2rem; }
+        h2 {
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--muted);
+        }
+        a { color: var(--link); }
+        ul { padding-left: 1.2rem; }
+        li { margin-bottom: 0.4rem; }
+        .muted { color: var(--muted); }
+        .links a { margin-right: 0.8rem; }
+        #theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font: inherit;
+            font-size: 0.9rem;
+            color: var(--fg);
+            background: none;
+            border: 1px solid var(--muted);
+            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // Use the saved choice, otherwise follow the system setting.
+        (function () {
+            var theme;
+            try { theme = localStorage.getItem("theme"); } catch (e) {}
+            if (!theme) {
+                theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
+</head>
+<body>
+    <button id="theme-toggle" type="button">Dark</button>
+    <h1>Jacob Malloy</h1>
+    <p class="muted">Ph.D. Student, Computer Science &middot; University of Tennessee, Knoxville</p>
 
-    </head>
-    <body>
-        <p>testing</p>
-    </body>
+    <p class="links">
+        <a href="mailto:jmalloy1@vols.utk.edu">Email</a>
+        <a href="https://github.com/jacobmalloy">GitHub</a>
+        <a href="https://gitlab.com/jmalloy1">GitLab</a>
+        <a href="https://www.linkedin.com/in/jacob-malloy-b5b5ba190/">LinkedIn</a>
+        <a href="https://orcid.org/0009-0000-3410-7752">ORCID</a>
+    </p>
+
+    <h2>About</h2>
+    <p>
+        I'm a Ph.D. student in the
+        <a href="http://web.eecs.utk.edu/~mrjantz/corsys.html">CORSys Lab</a>
+        advised by Prof. Michael Jantz. I work on computer systems, mostly
+        garbage collection and memory management in OpenJDK's HotSpot JVM.
+    </p>
+
+    <h2>Research</h2>
+    <ul>
+        <li>Using Intel Cache Allocation Technology to partition LLC ways between GC and application threads, reducing GC-induced cache pressure.</li>
+        <li>Data tiering for ZGC: classifying object hotness and migrating objects between DRAM and persistent memory.</li>
+        <li>Letting managed runtimes respond to OS memory pressure by shrinking their heaps on demand.</li>
+    </ul>
+
+    <h2>Publications</h2>
+    <ul>
+        <li>
+            <strong>VMem: Enabling Application Management of Physical Memory Resources.</strong>
+            ACM, 2025. (Second author)<br>
+            DOI: <a href="https://doi.org/10.1145/3767110.3767116">10.1145/3767110.3767116</a>
+        </li>
+    </ul>
+
+    <h2>Education</h2>
+    <ul>
+        <li>Ph.D., Computer Science, University of Tennessee <span class="muted">(2023&ndash;present)</span></li>
+        <li>M.S., Computer Science, University of Tennessee <span class="muted">(2025)</span></li>
+        <li>B.S., Computer Science, University of Tennessee <span class="muted">(2023)</span></li>
+    </ul>
+
+    <h2>Teaching</h2>
+    <p>
+        Teaching assistant for Systems Programming (3&times;), Compilers (2&times;),
+        and Advanced Algorithms at UTK.
+    </p>
+
+    <script>
+        var toggle = document.getElementById("theme-toggle");
+        function label() {
+            toggle.textContent = document.documentElement.getAttribute("data-theme") === "dark" ? "Light" : "Dark";
+        }
+        toggle.addEventListener("click", function () {
+            var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
+            try { localStorage.setItem("theme", next); } catch (e) {}
+            label();
+        });
+        label();
+    </script>
+</body>
 </html>
