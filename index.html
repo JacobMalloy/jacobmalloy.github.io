@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jacob Malloy</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <meta name="description" content="Jacob Malloy, Ph.D. student in Computer Science at the University of Tennessee, working on garbage collection and memory management in the HotSpot JVM.">
     <style>
         :root {
@@ -39,7 +41,9 @@
         ul { padding-left: 1.2rem; }
         li { margin-bottom: 0.4rem; }
         .muted { color: var(--muted); }
-        .links a { margin-right: 0.8rem; }
+        .links { font-size: 1.5rem; }
+        .links a { margin-right: 0.9rem; text-decoration: none; }
+        .links a:hover { opacity: 0.7; }
         #theme-toggle {
             position: absolute;
             top: 1rem;
@@ -72,13 +76,13 @@
     <p class="muted">Ph.D. Student, Computer Science &middot; University of Tennessee, Knoxville</p>
 
     <p class="links">
-        <a href="mailto:jmalloy1@vols.utk.edu">Email</a>
-        <a href="https://github.com/jacobmalloy">GitHub</a>
-        <a href="https://gitlab.com/jmalloy1">GitLab</a>
-        <a href="https://www.linkedin.com/in/jacob-malloy-b5b5ba190/">LinkedIn</a>
-        <a href="https://orcid.org/0009-0000-3410-7752">ORCID</a>
+        <a href="mailto:jmalloy1@vols.utk.edu" aria-label="Email" title="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+        <a href="https://scholar.google.com/citations?user=dZo8czcAAAAJ" aria-label="Google Scholar" title="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a>
+        <a href="https://github.com/jacobmalloy" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        <a href="https://gitlab.com/jmalloy1" aria-label="GitLab" title="GitLab"><i class="fa-brands fa-gitlab" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/jacob-malloy-b5b5ba190/" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://orcid.org/0009-0000-3410-7752" aria-label="ORCID" title="ORCID"><i class="ai ai-orcid" aria-hidden="true"></i></a>
     </p>
-
     <h2>About</h2>
     <p>
         I'm a Ph.D. student in the
@@ -86,13 +90,6 @@
         advised by Prof. Michael Jantz. I work on computer systems, mostly
         garbage collection and memory management in OpenJDK's HotSpot JVM.
     </p>
-
-    <h2>Research</h2>
-    <ul>
-        <li>Using Intel Cache Allocation Technology to partition LLC ways between GC and application threads, reducing GC-induced cache pressure.</li>
-        <li>Data tiering for ZGC: classifying object hotness and migrating objects between DRAM and persistent memory.</li>
-        <li>Letting managed runtimes respond to OS memory pressure by shrinking their heaps on demand.</li>
-    </ul>
 
     <h2>Publications</h2>
     <ul>
